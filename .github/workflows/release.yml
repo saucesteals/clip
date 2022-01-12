@@ -19,7 +19,7 @@ jobs:
           dest: build
           pkg: cmd/clip
           prefix: clip
-          targets: darwin/arm64,darwin/amd64
+          targets: darwin/arm64,darwin/amd64,windows/amd64
           v: true
           x: false
           race: false

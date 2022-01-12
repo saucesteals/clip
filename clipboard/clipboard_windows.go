@@ -1,22 +1,19 @@
-//go:build darwin
-
 package clipboard
 
 /*
-#cgo CFLAGS: -x objective-c
-#cgo LDFLAGS: -framework Foundation -framework Cocoa
 #include <stdlib.h>
 #include <stdbool.h>
-unsigned long clipboard_read(void **out);
+#include <windows.h>
+size_t clipboard_read(void **out);
 bool clipboard_write(const void *bytes, long n);
 */
 import "C"
 import (
-	"errors"
 	"unsafe"
 )
 
 func read() ([]byte, error) {
+
 	var out unsafe.Pointer
 
 	size := C.clipboard_read(&out)
@@ -37,18 +34,16 @@ func read() ([]byte, error) {
 func write(buffer []byte) error {
 	if len(buffer) == 0 {
 		ok := C.clipboard_write(unsafe.Pointer(nil), 0)
-
 		if !ok {
 			return errFailedToWrite
 		}
 		return nil
 	}
-	ok := C.clipboard_write(unsafe.Pointer(&buffer[0]), C.long(len(buffer)))
+	ok := C.clipboard_write(unsafe.Pointer(&buffer[0]), C.long(len(buffer)+1))
 
 	if !ok {
 		return errFailedToWrite
 	}
 
 	return nil
-
 }
