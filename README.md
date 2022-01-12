@@ -2,6 +2,8 @@
 
 A simple and robust clipboard manager
 
+Clip is currently ONLY for macos (as it's what I use and can actively test on). Requests ( and PRs ;) ) for other platforms are welcome!
+
 # Usage
 
 - Copying
