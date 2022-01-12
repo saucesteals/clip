@@ -10,13 +10,13 @@ var (
 )
 
 func init() {
-	log.SetFlags(log.Ltime | log.Lmsgprefix)
-	log.SetPrefix("| ")
+	log.SetFlags(0)
 	flag.Parse()
 	op = flag.Arg(0)
 }
 
 func main() {
+
 	switch op {
 	case "paste":
 		paste()
@@ -25,7 +25,7 @@ func main() {
 	case "post":
 		post()
 	default:
-		log.Fatalf("invalid operation: %q", op)
+		log.Fatal("Usage: clip <copy | paste | post>")
 	}
 
 }
