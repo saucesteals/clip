@@ -23,6 +23,7 @@ jobs:
           v: true
           x: false
           race: false
+          ldflags: -s -w
           buildmode: default
       - name: Release
         uses: softprops/action-gh-release@v1
