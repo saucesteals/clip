@@ -1,5 +1,6 @@
 on:
   release:
+    workflow_dispatch:
     types: [created]
 
 jobs:
@@ -16,6 +17,7 @@ jobs:
           xgo_version: latest
           go_version: 1.17.5
           dest: build
+          pkg: cmd/clip
           prefix: clip
           targets: darwin/arm64,darwin/amd64
           v: true
