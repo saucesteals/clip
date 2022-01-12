@@ -14,6 +14,9 @@ bool clipboard_write(const void *bytes, size_t size) {
 
 size_t clipboard_read(void **bytes) {
     OpenClipboard(0);
+    if (!IsClipboardFormatAvailable(CF_TEXT)) {
+        return -1;
+    }
     HANDLE h = GetClipboardData(CF_TEXT);
     int size = strlen(h);
     *bytes = malloc(size);
