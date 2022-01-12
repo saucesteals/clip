@@ -12,7 +12,6 @@ bool clipboard_write(const void *bytes, long n);
 */
 import "C"
 import (
-	"errors"
 	"unsafe"
 )
 
