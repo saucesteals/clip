@@ -21,7 +21,7 @@ clip paste > ./test
 - Posting (posts stdin to paste.rs)
 
 ```sh
-echo "foo" | clip poste
+echo "foo" | clip post
 cat ./foo.bar | clip post
 ```
 
