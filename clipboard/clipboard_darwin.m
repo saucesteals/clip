@@ -2,7 +2,7 @@
 #import <Cocoa/Cocoa.h>
 
 unsigned long clipboard_read(void **out) {
-	NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
+	NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
 	NSData *data = [pasteboard dataForType:NSPasteboardTypeString];
 	if (data == nil) {
 		return true;
