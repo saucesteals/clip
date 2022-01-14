@@ -16,7 +16,7 @@ cat ./foo.bar | clip copy
 - Pasting
 
 ```sh
-clip paste >&1
+clip paste
 clip paste > ./test
 ```
 
