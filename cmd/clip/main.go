@@ -5,19 +5,11 @@ import (
 	"log"
 )
 
-var (
-	op string
-)
-
-func init() {
+func main() {
 	log.SetFlags(0)
 	flag.Parse()
-	op = flag.Arg(0)
-}
 
-func main() {
-
-	switch op {
+	switch flag.Arg(0) {
 	case "paste":
 		paste()
 	case "copy":
