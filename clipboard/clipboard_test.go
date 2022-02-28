@@ -1,19 +1,14 @@
 package clipboard
 
 import (
-	"reflect"
+	"bytes"
 	"testing"
 )
 
-func init() {
-	write([]byte{})
-}
-
-func TestRead(t *testing.T) {
+func TestWriteAndRead(t *testing.T) {
 	want := []byte("foo bar 1337")
-	err := write(want)
 
-	if err != nil {
+	if err := write(want); err != nil {
 		t.Fatal(err)
 	}
 
@@ -23,7 +18,7 @@ func TestRead(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if !reflect.DeepEqual(want, got) {
+	if !bytes.Equal(want, got) {
 		t.Errorf("got %q; want %q", got, want)
 	}
 }
